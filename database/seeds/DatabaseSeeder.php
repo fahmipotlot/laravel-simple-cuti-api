@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,13 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // App\Models\User::factory(20)->create()
-        //     ->each(function($user) {
-        //     App\Models\Cuti::create([
-        //         'user_id' => $user->id
-        //     ]);
-        // });
-        factory(App\Models\User::class, 10)->create()->each(function(App\Models\User $user) {
+        User::firstOrCreate(['email' => 'amirfahmi8@gmail.com'], [
+            'email' => 'amirfahmi8@gmail.com',
+            'name' => 'Fahmi Amiruddin Nafi',
+            'password' => bcrypt('password')
+        ]);
+
+        factory(User::class, 10)->create()->each(function(User $user) {
             factory(App\Models\Cuti::class, 5)->create(['user_id' => $user->id]);
         });
     }
