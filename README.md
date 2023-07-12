@@ -21,3 +21,4 @@ Laravel Simple Cuti API
 7. Run `php artisan db:seed`
 8. Run `php artisan serve`
 9. Run `composer test` for testing
+10. Run `composer test-report` for testing and generate code coverage for run this step you must configure xdebug to your local environment, just follow this instructions https://xdebug.org/wizard

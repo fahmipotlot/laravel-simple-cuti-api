@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', 'Api\AuthController@login');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', 'Api\AuthController@profile');
     Route::get('/annual-leaves', 'Api\CutiController@index');
     Route::get('/annual-leaves/{id}', 'Api\CutiController@show');
     Route::post('/annual-leaves', 'Api\CutiController@store');

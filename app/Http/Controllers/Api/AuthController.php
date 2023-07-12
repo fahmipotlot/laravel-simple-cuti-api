@@ -41,4 +41,11 @@ class AuthController extends Controller
             ], 401);
         }
     }
+
+    public function profile()
+    {
+        $user_id = Auth::user()->id;
+        $profile = User::with('cutis')->findOrFail($user_id);
+        return $profile;
+    }
 }
